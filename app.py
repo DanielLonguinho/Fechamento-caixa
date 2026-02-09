@@ -1,9 +1,9 @@
 import streamlit as st
 
-st.title("🚌 Fechamento de Caixa em Tempo Real")
+st.title("🚌 Fechamento de Caixa em")
 
 # --- SEÇÃO 1: RELATÓRIOS E VALES ---
-st.header("Entradas e Saídas")
+st.header("Relatórios e Vales")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -11,10 +11,10 @@ with col1:
     # Transforma o texto em lista de números
     valores = [float(x) for x in relatorios_texto.split() if x.strip()]
     total_r = sum(valores)
-    st.metric("Total Relatórios (Linha 2)", f"R$ {total_r:.2f}")
+    st.metric("Total Relatórios", f"R$ {total_r:.2f}")
 
 with col2:
-    vales_texto = st.text_area("Vales/Pedágios (um por linha)", value="0.0")
+    vales_texto = st.text_area("Vales (um por linha)", value="0.0")
     vales = [float(x) for x in vales_texto.split() if x.strip()]
     total_v = sum(vales)
     st.metric("Total Vales (Linha 4)", f"R$ {total_v:.2f}")
@@ -26,7 +26,7 @@ st.subheader(f"Total Esperado no Caixa: R$ {total_caixa_esperado:.2f}")
 st.divider()
 
 # --- SEÇÃO 2: CONTAGEM DE NOTAS ---
-st.header("Contagem de Notas (Linha 6 e 7)")
+st.header("Contagem de Notas ")
 notas = [100, 50, 20, 10, 5, 2]
 total_notas_fisicas = 0.0
 
@@ -44,8 +44,8 @@ st.divider()
 diferenca = total_notas_fisicas - total_caixa_esperado
 
 c1, c2 = st.columns(2)
-c1.metric("Total em Notas (Linha 9)", f"R$ {total_notas_fisicas:.2f}")
-c2.metric("Diferença (Linha 10)", f"R$ {diferenca:.2f}", delta=diferenca)
+c1.metric("Total em Notas ", f"R$ {total_notas_fisicas:.2f}")
+c2.metric("Diferença ", f"R$ {diferenca:.2f}", delta=diferenca)
 
 if diferenca == 0:
     st.success("O caixa bateu perfeitamente!")
