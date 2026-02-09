@@ -17,7 +17,7 @@ with col2:
     vales_texto = st.text_area("Vales (um por linha)", value="0.0")
     vales = [float(x) for x in vales_texto.split() if x.strip()]
     total_v = sum(vales)
-    st.metric("Total Vales (Linha 4)", f"R$ {total_v:.2f}")
+    st.metric("Total Vales ", f"R$ {total_v:.2f}")
 
 # Cálculo do Total Líquido (Linha 5)
 total_caixa_esperado = total_r - total_v
