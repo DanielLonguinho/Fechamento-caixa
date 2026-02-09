@@ -45,7 +45,6 @@ diferenca = total_notas_fisicas - total_caixa_esperado
 
 c1, c2 = st.columns(2)
 c1.metric("Total em Notas ", f"R$ {total_notas_fisicas:.2f}")
-c2.metric("Diferença ", f"R$ {diferenca:.2f}", delta=diferenca)
 
 if diferenca == 0:
     st.success("O caixa bateu perfeitamente!")
